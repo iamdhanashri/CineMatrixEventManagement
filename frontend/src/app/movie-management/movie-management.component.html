@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Movie Management</h2>
+  
+    <!-- Form for creating or updating a movie -->
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" formControlName="title" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control" required></textarea>
+      </div>
+      <!-- Add other movie-related form fields as needed -->
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  
+    <hr />
+  
+    <!-- Table to display the list of movies -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <!-- Add other movie-related table headers as needed -->
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{ movie.title }}</td>
+          <td>{{ movie.description }}</td>
+          <!-- Add other movie-related table cells as needed -->
+          <td>
+            <button class="btn btn-sm btn-primary" (click)="editMovie(movie)">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteMovie(movie._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

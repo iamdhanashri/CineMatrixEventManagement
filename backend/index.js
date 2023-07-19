@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { userRouter } = require('./routes/user.route');
+const { moviesRouter } = require('./routes/movie.route');
+const { showsRouter } = require('./routes/show.route');
+
 const { dbConnection } = require('./config/db');
 
 const app = express();
@@ -16,7 +19,8 @@ app.get("/",(req,res)=>{
 
 })
 app.use("/users",userRouter)
-
+app.use('/movies', moviesRouter);
+app.use('/shows', showsRouter);
 
 // Start the server
 
