@@ -1,0 +1,42 @@
+#movieList {
+  margin: 16px 0;
+  font-family: cursive;
+ 
+
+/* margin-top: 100px; */
+
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+
+
+}
+.recentMovies{
+  width: 23%;
+  margin-bottom: 20px;
+}
+.card-img-top{
+  width: 300px;
+  height: 400px;
+}
+  .card-title {
+      margin-bottom: 3px;
+      font-weight: 600;
+  }
+  .card-text {
+      margin-bottom: 3px;
+      font-weight: 400;
+  }
+  .movieDate {
+      font-weight: 200;
+  }
+
+.card-body {
+  padding-left: 5px;
+}
+.card:hover {
+  border: 2px solid burlywood;
+}

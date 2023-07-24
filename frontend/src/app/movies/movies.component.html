@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+   
+          <div *ngFor="let movie of data" class="recentMovies">
+              <div id="movieList" class="card">
+                <img class="card-img-top" src={{movie.img}} alt="Card image cap">
+
+                  <div class="card-body">
+                      <h5 class="card-title">{{movie.title}}</h5>
+                      <p class="card-text">{{movie.description}}</p>
+                      <!-- <p class="card-text movieDate">{{movie.date}}</p> -->
+                  </div>
+              </div>
+          </div>
+ 
+  </div>
+</div>

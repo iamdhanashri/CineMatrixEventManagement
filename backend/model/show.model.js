@@ -3,7 +3,7 @@
 const mongoose=require("mongoose")
 
 const showSchema=mongoose.Schema({
-    movie: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true }, // Reference to the Movie entity
+    movie: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie',  }, // Reference to the Movie entity
     showTime: { type: Date, required: true },
     category: { type: String, enum: ['matinee', 'evening'], required: true },
 })

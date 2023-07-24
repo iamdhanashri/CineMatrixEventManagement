@@ -1,0 +1,145 @@
+/* Reset default styles for the nav */
+nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  height: 70px;
+  position:sticky;
+  width: 100%;
+}
+
+/* Style the navigation links */
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Add underline for the active link */
+nav .underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Add hover effect to the links */
+nav a:hover {
+  color: #f5f5f5;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Add hover effect to the underline */
+nav a:hover + .underline {
+  width: 100%;
+}
+
+/* Optional: Center the nav and add some space at the top */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+/* Style the logo container */
+.logo {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 40px;
+  width: 40px;
+  margin-left: 1.5rem;
+  padding: 0.3rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 6px auto;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    background-color: #007bff;
+  }
+
+  nav a {
+    margin: 5px 0;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 101;
+  }
+
+  .nav_body {
+    display: none;
+  }
+
+  .nav_body.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #007bff;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 100;
+  }
+
+  .nav_body.show a {
+    color: #f5f5f5;
+  }
+
+  .nav_body.show .underline {
+    display: none;
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+  }
+}

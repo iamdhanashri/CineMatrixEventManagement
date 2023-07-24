@@ -1,15 +1,15 @@
 const bcrypt = require("bcrypt");
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const { participantModel } = require("../model/event.model");
+const { ParticipantModel } = require("../model/participant.model.js");
 
-const participant = express.Router();
+const participantRouter = express.Router();
 
 // post
 
-participant.get("/", async (req, res) => {
+participantRouter.get("/", async (req, res) => {
     try {
-        const events = await participantModel.find();
+        const events = await ParticipantModel.find();
         res.status(200).json(events);
       } catch (error) {
         res.status(500).json({ message: 'Error while fetching events', error });
@@ -18,10 +18,10 @@ participant.get("/", async (req, res) => {
 
 // put
 
-participant.get("/:id", async (req, res) => {
+participantRouter.get("/:id", async (req, res) => {
     try {
         const eventId = req.params.id;
-        const event = await participantModel.findById(eventId);
+        const event = await ParticipantModel.findById(eventId);
         if (!event) {
           return res.status(404).json({ message: 'Event not found' });
         }
@@ -32,10 +32,10 @@ participant.get("/:id", async (req, res) => {
 });
 
 // POST: Create a new user
-participant.post("/", async (req, res) => {
+participantRouter.post("/", async (req, res) => {
     try {
         const eventData = req.body;
-        const newEvent = await participantModel.create(eventData);
+        const newEvent = await ParticipantModel.create(eventData);
         res.status(201).json(newEvent);
       } catch (error) {
         res.status(500).json({ message: 'Error while creating the event', error });
@@ -43,11 +43,11 @@ participant.post("/", async (req, res) => {
 });
 
 // PUT: Update a user by ID
-participant.put("/:id", async (req, res) => {
+participantRouter.put("/:id", async (req, res) => {
     try {
         const eventId = req.params.id;
         const eventData = req.body;
-        const updatedEvent = await participantModel.findByIdAndUpdate(eventId, eventData, {
+        const updatedEvent = await ParticipantModel.findByIdAndUpdate(eventId, eventData, {
           new: true,
           runValidators: true,
         });
@@ -61,10 +61,10 @@ participant.put("/:id", async (req, res) => {
 });
 
 // DELETE: Delete a user by ID
-participant.delete("/:id", async (req, res) => {
+participantRouter.delete("/:id", async (req, res) => {
     try {
         const eventId = req.params.id;
-        const deletedEvent = await participantModel.findByIdAndDelete(eventId);
+        const deletedEvent = await ParticipantModel.findByIdAndDelete(eventId);
         if (!deletedEvent) {
           return res.status(404).json({ message: 'Event not found' });
         }
@@ -75,5 +75,5 @@ participant.delete("/:id", async (req, res) => {
 });
 
 module.exports = {
-  participant,
+  participantRouter,
 };

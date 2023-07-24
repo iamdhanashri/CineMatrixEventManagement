@@ -2,6 +2,8 @@
 const express = require("express");
 const showRouter = express.Router();
 // const Movie = require('../models/movie');
+// const { movieRouter } = require('./routes/movie.route.js');
+
 const { showModel } = require("../model/show.model");
 
 // GET all shows

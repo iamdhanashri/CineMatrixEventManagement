@@ -1,8 +1,9 @@
 // components/participant-management/participant-management.component.ts
 
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Participant } from '../../models/participant.model';
-import { ParticipantService } from '../../services/participant.service';
+// import { ParticipantService } from '../../services/participant.service';
 
 @Component({
   selector: 'app-participant-management',
@@ -13,7 +14,7 @@ export class ParticipantManagementComponent implements OnInit {
   participants: Participant[] = [];
   participantForm: FormGroup;
 
-  constructor(private participantService: ParticipantService, private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
     this.participantForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -27,10 +28,10 @@ export class ParticipantManagementComponent implements OnInit {
 
   getAllParticipants(): void {
     this.participantService.getAllParticipants().subscribe(
-      (participants) => {
+      (participants: Participant[]) => {
         this.participants = participants;
       },
-      (error) => {
+      (error: any) => { // Explicitly specify the type of 'error' parameter
         console.error('Error while fetching participants:', error);
       }
     );
@@ -43,11 +44,11 @@ export class ParticipantManagementComponent implements OnInit {
 
     const participantData: Participant = this.participantForm.value;
     this.participantService.createParticipant(participantData).subscribe(
-      (createdParticipant) => {
+      (createdParticipant: Participant) => {
         this.participants.push(createdParticipant);
         this.participantForm.reset();
       },
-      (error) => {
+      (error: any) => { // Explicitly specify the type of 'error' parameter
         console.error('Error while creating participant:', error);
       }
     );
@@ -58,7 +59,7 @@ export class ParticipantManagementComponent implements OnInit {
       () => {
         this.participants = this.participants.filter((participant) => participant._id !== participantId);
       },
-      (error) => {
+      (error: any) => { // Explicitly specify the type of 'error' parameter
         console.error('Error while deleting participant:', error);
       }
     );

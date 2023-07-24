@@ -30,7 +30,7 @@ userRouter.get("/:id", async (req, res) => {
 });
 
 // POST: Create a new user
-userRouter.post("/", async (req, res) => {
+userRouter.post("/regi", async (req, res) => {
   const newUser = req.body;
   try {
     const user=new userModel(req.body)
@@ -41,6 +41,21 @@ userRouter.post("/", async (req, res) => {
     res.status(500).json({ message: "Error creating user" });
   }
 });
+userRouter.post("/login",async(req,res)=>{
+  const { email, password } = req.body;
+
+  const user = await userModel.find({ email, password });    // if both email and pass name same then we can use only on name as per es6
+  if (user.length > 0) {
+
+      res.send({ msg: "user Login successful" });
+  }
+  else {
+      res.send({ msg: "user Authentication failed" });
+
+  }
+})
+
+
 
 // PUT: Update a user by ID
 userRouter.put("/:id", async (req, res) => {

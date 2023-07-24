@@ -1,0 +1,291 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;;
+}
+
+.back_img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -10000;
+  opacity: calc(0.5);
+}
+
+/* home.component.css */
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+ 
+
+}
+.eventH1{
+  margin-top: 0px;
+}
+
+.eventImg{
+  margin-top: -100px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 36px;
+  color: #333;
+  animation: fadeInDown 1s forwards;
+}
+
+.header p {
+  font-size: 20px;
+  color: #666;
+  font-family: Arial, Helvetica, sans-serif;
+  animation: fadeInDown 1s forwards;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.feature-item {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-item i {
+  font-size: 40px;
+  color: #333;
+}
+
+.feature-item h3 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.feature-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+.feature-item:hover {
+  transform: scale(1.05);
+  cursor: pointer;;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* app.component.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.image-gallery {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 10px;
+}
+
+.image-container {
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: auto;
+  margin-top: 50px;
+
+
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container:hover {
+  transform: scale(1.1);
+}
+
+.selected-image {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-image img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* app.component.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.activity-gallery {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 20px;
+  justify-content: center;
+  width: 500px;
+  
+}
+
+.activity-container {
+  width: 500%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.activity-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.activity-container p {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin: 0;
+}
+
+.activity-container:hover {
+  transform: translateY(-5px);
+}
+
+h1{
+  text-align: center;
+}
+
+/* app.component.css */
+/* Reset some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic styling for the footer */
+footer {
+  background-color: #222; /* Change the background color to your liking */
+  color: #fff; /* Change the text color to your liking */
+  padding: 40px 0;
+}
+
+/* Center the content in the footer */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style the footer logo and company name */
+.footer-logo img {
+  width: 50px; /* Adjust the logo width as needed */
+  height: auto;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Style the footer links */
+.footer-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffcc00; /* Change the link color on hover to your liking */
+}
+
+/* Style the footer social icons */
+.footer-social a {
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social img {
+  width: 30px; /* Adjust the social icon size as needed */
+  height: auto;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2); /* Add a slight scale effect on hover */
+}
+
+/* Style the footer bottom section */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Optional: Add a border at the top of the footer */
+footer {
+  border-top: 1px solid #444;
+}

@@ -2,11 +2,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { userRouter } = require('./routes/user.route');
-const { moviesRouter } = require('./routes/movie.route');
-const { showsRouter } = require('./routes/show.route');
+const { userRouter } = require('./routes/user.route.js');
+const { movieRouter } = require('./routes/movie.route.js');
+const { showRouter } = require('./routes/show.route.js');
+const { participantRouter } = require('./routes/participant.route.js');
+
 
 const { dbConnection } = require('./config/db');
+const { eventRouter } = require('./routes/event.route.js');
 
 const app = express();
 
@@ -19,8 +22,10 @@ app.get("/",(req,res)=>{
 
 })
 app.use("/users",userRouter)
-app.use('/movies', moviesRouter);
-app.use('/shows', showsRouter);
+app.use('/movies', movieRouter);
+app.use('/shows', showRouter);
+app.use("/parti",participantRouter)
+app.use("/events",eventRouter)
 
 // Start the server
 

@@ -8,7 +8,7 @@ import { Participant } from '../../../../backend/model/participant.model.js';
 @Injectable({
   providedIn: 'root',
 })
-export class ParticipantService {
+export class ParticipantComponent {
   private apiUrl = '/api/participants';
 
   constructor(private http: HttpClient) {}

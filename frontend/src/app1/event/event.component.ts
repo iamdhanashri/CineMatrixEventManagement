@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class EventService {
+export class EventComponent {
   private apiUrl = '/api/events';
 
   constructor(private http: HttpClient) {}

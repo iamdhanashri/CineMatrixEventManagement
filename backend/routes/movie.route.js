@@ -1,8 +1,7 @@
 // routes/movies.js
 const express = require("express");
 const movieRouter = express.Router();
-// const Movie = require('../models/movie');
-const { movieModel } = require("../model/movie.model");
+const { movieModel } = require("../model/movie.model.js");
 
 // GET all movies
 movieRouter.get("/", async (req, res) => {
@@ -19,6 +18,7 @@ movieRouter.post("/", async (req, res) => {
   const movie = new movieModel({
     title: req.body.title,
     description: req.body.description,
+    img:req.body.img
     // Populate other movie-related fields
   });
 
@@ -65,6 +65,7 @@ movieRouter.delete("/:id", getMovie, async (req, res) => {
 
 // Middleware function to retrieve a specific movie by ID
 async function getMovie(req, res, next) {
+    const movie = req.params.id
   try {
     movie = await Movie.findById(req.params.id);
     if (movie == null) {
@@ -76,6 +77,49 @@ async function getMovie(req, res, next) {
 
   res.movie = movie;
   next();
+
 }
 
-module.exports = { movieRouter };
+// ----------------------------
+// const getMovieByIdMiddleware = (req, res, next) => {
+//   const movieId = parseInt(req.params.id); // Assuming the ID is passed as a URL parameter
+
+//   const movie = movies.find((movie) => movie.id === movieId);
+
+//   if (!movie) {
+//     // If the movie with the specified ID is not found, send a 404 response
+//     return res.status(404).json({ error: 'Movie not found' });
+//   }
+
+//   // Attach the found movie to the request object for further processing in route handlers
+//   req.movie = movie;
+//   next();
+// };
+
+// module.exports = getMovieByIdMiddleware;
+
+
+// ------------------
+
+
+movieRouter.get('/:id', (req, res, next) => {
+  const movieId = parseInt(req.params.id);
+
+  // Sample logic to find a movie by ID (replace this with your actual movie data retrieval logic)
+  const movie = movies.find((movie) => movie.id === movieId);
+
+  if (!movie) {
+    // If the movie is not found, create a new Error object with a custom status code and message
+    const error = new Error('Movie not found');
+    error.statusCode = 404;
+    return next(error);
+  }
+
+  res.json(movie);
+});
+
+// -------------------------
+
+module.exports = {
+  movieRouter,
+};

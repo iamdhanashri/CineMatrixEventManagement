@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
+import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
 
 import { AuthGuard } from './auth.guard';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,8 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { MoviesComponent } from './movies/movies.component';
 import { ShowsComponent } from './shows/shows.component';
 import { EventsComponent } from './events/events.component';
+import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
-// import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RegistrationComponent } from './registration/registration.component';
 
 
@@ -28,6 +29,7 @@ import { RegistrationComponent } from './registration/registration.component';
     MoviesComponent,
     ShowsComponent,
     EventsComponent,
+    ProfileComponent,
     LoginComponent,
     RegistrationComponent,
 
@@ -35,11 +37,11 @@ import { RegistrationComponent } from './registration/registration.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // SlickCarouselModule,
+    SlickCarouselModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    // MatSnackBarModule
+    MatSnackBarModule
 
   
   ],

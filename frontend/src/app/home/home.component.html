@@ -1,0 +1,75 @@
+<body>
+  <div class="landing-wrapper">
+    <!-- Your landing page content goes here -->
+    <header>
+   
+    </header>
+    <main>
+
+
+   
+    </main>
+
+    <body>
+     
+      <div>
+        <div class="eventH1"><h1>Go to Events Section</h1></div>
+        <div class="card">
+          <div class="image-gallery">
+            <div
+              *ngFor="let imgUrl of imgData"
+              class="image-container"
+              (click)="onSelectImage(imgUrl)"
+            >
+              <a routerLink="/events">
+                <img [src]="imgUrl" alt="Image" />
+              </a>
+            </div>
+          </div>
+          <div *ngIf="selectedImage" class="selected-image">
+            <a routerLink="/movies">
+              <img [src]="selectedImage" alt="Selected Image" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Got to Movie Section</h2>
+        <div class="activity-gallery">
+          <div *ngFor="let item of activity" class="activity-container">
+            <a routerLink="/movies">
+              <img [src]="item.img" alt="Activity Image" />
+            </a>
+            <p>{{ item.name }}</p>
+          </div>
+        </div>
+      </div>
+    </body>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-logo">
+          <h3>CineMatrix</h3>
+        </div>
+        <nav class="footer-links">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-social">
+          <a href="#" target="_blank">Facebook</a>
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">LinkedIn></a>
+
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Your Company. All rights reserved. | Designed by Your Name</p>
+      </div>
+    </footer>
+    
+  </div>
+</body>
